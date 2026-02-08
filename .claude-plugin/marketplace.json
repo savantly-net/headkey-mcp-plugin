@@ -1,0 +1,22 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "savantly",
+  "description": "Savantly plugins for Claude Code — AI agent memory, beliefs, and knowledge graph tools powered by Headkey",
+  "owner": {
+    "name": "Savantly",
+    "email": "support@savantly.net"
+  },
+  "plugins": [
+    {
+      "name": "headkey",
+      "description": "Memory layer for AI agents — store, organize, retrieve, and manage memories and beliefs via the Headkey API",
+      "version": "1.0.0",
+      "author": {
+        "name": "Savantly"
+      },
+      "source": "./",
+      "category": "productivity",
+      "homepage": "https://github.com/savantly/headkey-plugins"
+    }
+  ]
+}
