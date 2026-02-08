@@ -1,7 +1,7 @@
 {
   "headkey": {
     "type": "http",
-    "url": "${HEADKEY_API_URL}/mcp",
+    "url": "https://www.headkey.ai/api/mcp",
     "headers": {
       "Authorization": "Bearer ${HEADKEY_API_KEY}"
     }

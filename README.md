@@ -1,6 +1,6 @@
 # Headkey Plugin for Claude Code
 
-A Claude Code plugin that connects to the [Headkey Memory API](https://headkey.dev) — giving AI agents persistent memory, beliefs, and knowledge graph capabilities.
+A Claude Code plugin that connects to the [Headkey Memory API](https://headkey.ai) — giving AI agents persistent memory, beliefs, and knowledge graph capabilities.
 
 ## What it does
 
@@ -16,7 +16,7 @@ This plugin adds Headkey's MCP tools directly into Claude Code, enabling:
 
 ```bash
 # Add the Savantly marketplace
-claude plugin marketplace add savantly/headkey-plugins
+claude plugin marketplace add savantly-net/claude-plugins
 
 # Install the plugin
 claude plugin install headkey@savantly

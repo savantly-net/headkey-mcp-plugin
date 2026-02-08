@@ -4,9 +4,9 @@
   "description": "Memory layer for AI agents — store, organize, retrieve, and manage memories and beliefs via the Headkey API",
   "author": {
     "name": "Savantly",
-    "url": "https://github.com/savantly"
+    "url": "https://github.com/savantly-net"
   },
-  "repository": "https://github.com/savantly/headkey-plugins",
+  "repository": "https://github.com/savantly-net/claude-plugins",
   "license": "MIT",
   "keywords": [
     "memory",
