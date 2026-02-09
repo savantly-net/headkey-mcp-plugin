@@ -1,6 +1,6 @@
 ---
 name: setup
-description: This skill should be used when the user asks to "set up headkey", "configure headkey", "connect to headkey", mentions "HEADKEY_API_KEY", "HEADKEY_API_URL", or discusses headkey configuration and authentication setup.
+description: This skill should be used when the user asks to "set up headkey", "configure headkey", "connect to headkey", mentions "HEADKEY_API_KEY", or discusses headkey configuration, authentication setup, or per-project agent configuration.
 version: 1.0.0
 ---
 
@@ -13,56 +13,50 @@ This skill helps users configure their connection to the Headkey Memory API.
 - User wants to set up or configure the Headkey plugin
 - User needs help with API key configuration
 - User is troubleshooting connection issues
-- User mentions `HEADKEY_API_KEY` or `HEADKEY_API_URL`
+- User wants to configure a different Headkey agent per project
 
-## Required Environment Variables
+## Key Concept
 
-| Variable | Description | Default |
-|---|---|---|
-| `HEADKEY_API_URL` | Base URL of the Headkey API | `https://www.headkey.ai/api/mcp` |
-| `HEADKEY_API_KEY` | API key for authentication (prefix: `cibfe_`) | _(required)_ |
+Each Headkey API key is associated with a specific agent. To use different agents in different projects, set the API key at the project level rather than globally.
 
-## Configuration Methods
+## Configuration
 
-### Method 1: Shell Environment (Recommended)
-
-Add to `~/.zshrc` or `~/.bashrc`:
-
-```bash
-export HEADKEY_API_URL="https://www.headkey.ai/api/mcp"
-export HEADKEY_API_KEY="cibfe_your_key_here"
-```
-
-### Method 2: Claude Code Project Settings
+### Project-Level (Recommended for multi-project setups)
 
 Add to `.claude/settings.json` in the project root:
 
 ```json
 {
   "env": {
-    "HEADKEY_API_URL": "https://www.headkey.ai/api/mcp",
     "HEADKEY_API_KEY": "cibfe_your_key_here"
   }
 }
 ```
 
-### Method 3: Claude Code User Settings
+Make sure `.claude/settings.json` is in `.gitignore` to avoid committing secrets.
 
-Add to `~/.claude/settings.json` for global access:
+Project-level settings override global settings, so you can have a default global key and override it per project.
+
+### Global
+
+Add to `~/.claude/settings.json`:
 
 ```json
 {
   "env": {
-    "HEADKEY_API_URL": "https://www.headkey.ai/api/mcp",
     "HEADKEY_API_KEY": "cibfe_your_key_here"
   }
 }
 ```
 
+## Setup Command
+
+Users can run `/headkey:setup` for a guided walkthrough that handles scope selection, key configuration, and `.gitignore` setup.
+
 ## Verification
 
-After configuration, verify the connection works by using any Headkey MCP tool (e.g., listing agents). If the connection fails, check:
+After configuration, restart Claude Code and verify the Headkey MCP tools are available. If the connection fails, check:
 
-1. The API URL is correct and accessible
-2. The API key is valid and not expired
-3. Network connectivity to the Headkey API
+1. The API key is valid and not expired
+2. Network connectivity to https://www.headkey.ai
+3. Project-level settings aren't being overridden unexpectedly
