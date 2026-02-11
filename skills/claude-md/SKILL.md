@@ -20,7 +20,7 @@ This skill helps users generate and manage CLAUDE.md instructions that teach Cla
 | Tool | When to Use | Key Params |
 |------|-------------|------------|
 | `ask` | Session start — load prior context | `question`, `include` |
-| `remember` | Learned something significant | `content`, `tags`, `source`, `importance` |
+| `remember` | Learned something significant | `content`, `tags`, `source`, `importance`, `visibility`, `visibilityScopes` |
 | `recall` | Search for specific memories | `query`, `tags`, `limit` |
 | `forget` | Remove outdated/wrong memories | `memoryIds`, `strategy` |
 | `believe` | Recording a decision or assertion | `statement`, `confidence`, `category` |
@@ -36,7 +36,15 @@ Five composable patterns, selected based on project complexity:
 2. **Architecture Graph** — for projects with 3+ services/modules. Map component relationships with `relate`.
 3. **Decision Tracking** — for active development. Track decisions with `believe`, check conflicts before changes.
 4. **Knowledge Gap Detection** — for complex projects. Use `ask` to check knowledge density before researching from scratch.
-5. **Cross-Project Learning** — for monorepos or related projects. Tag memories for cross-project visibility.
+5. **Cross-Project Learning** — for monorepos or related projects. Use `visibility: "org"` to share knowledge across projects.
+
+## Visibility Scopes
+
+Three visibility levels control how memories are shared:
+
+- **`private`** (default) — only the creating agent can access the memory.
+- **`scoped`** — agents whose `readScopes` match the memory's `visibilityScopes` can access it. Use this to share knowledge between specific agent groups (e.g., agents working on related projects). Falls back to the agent's `defaultWriteScope` if no scopes are provided.
+- **`org`** — all agents in the organization can access it. Use for genuinely org-wide knowledge (shared conventions, cross-cutting patterns, common APIs).
 
 ## Setup Command
 

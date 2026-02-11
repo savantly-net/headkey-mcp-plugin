@@ -36,7 +36,8 @@ When you discover gaps in project knowledge, call `remember` with importance: "h
 ### Cross-Project Learning (monorepo or related projects)
 
 ```
-When storing knowledge that would be useful across related projects, add tag: "shared" and include the broader context in the memory content.
+When storing knowledge that would be useful across related projects, call `remember` with visibility: "scoped" and visibilityScopes matching the shared scope name, so agents in those projects can access it.
+For knowledge that applies org-wide (shared conventions, cross-cutting patterns), call `remember` with visibility: "org".
 When starting work that might overlap with other projects, call `recall` with broad tags to check for shared knowledge.
 ```
 
@@ -47,6 +48,7 @@ When starting work that might overlap with other projects, call `recall` with br
 3. **Each line must be a behavioral trigger.** Format: "When {condition}, call `{tool}` with {key params}."
 4. **Use the actual project name.** Replace `{project}` in all templates with the detected project name.
 5. **Don't duplicate what MCP provides.** Tool schemas, parameter types, and defaults come from MCP — only specify *when* to use tools and which params matter.
+6. **Visibility defaults to private.** Memories are private to the agent unless explicitly shared. Use `visibility: "scoped"` with `visibilityScopes` to share with specific agent groups. Use `visibility: "org"` only for knowledge that genuinely applies to all agents in the org.
 
 ## Anti-Patterns
 
@@ -96,6 +98,7 @@ Before making significant changes, call `beliefs` with category: "decision" to c
 When a previous decision is reversed or updated, call `believe` with the new decision — conflicts with prior beliefs are detected automatically.
 When unsure what is already known about a topic, call `ask` with a specific question before researching from scratch.
 When you discover gaps in project knowledge, call `remember` with importance: "high" and tag: "gap" to flag areas needing documentation.
-When storing knowledge that would be useful across related projects, add tag: "shared" and include the broader context in the memory content.
+When storing knowledge that would be useful across related projects, call `remember` with visibility: "scoped" and visibilityScopes matching the shared scope name.
+For org-wide knowledge (shared conventions, cross-cutting patterns), call `remember` with visibility: "org".
 When starting work that might overlap with other projects, call `recall` with broad tags to check for shared knowledge.
 ```
