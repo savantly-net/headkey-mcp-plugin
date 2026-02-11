@@ -32,6 +32,7 @@ claude plugin install headkey@savantly
 - **Knowledge graph** — create entities, define relationships, query connections
 - **Sensory events** — stream events into short-term memory for async processing
 - **Agent management** — create and configure AI agents with custom memory strategies
+- **CLAUDE.md generation** — run `/headkey:claude-md` to auto-generate memory instructions tailored to your project
 
 **Configuration:**
 
