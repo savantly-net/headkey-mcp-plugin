@@ -1,31 +1,14 @@
-# Savantly Claude Plugins
+# Headkey MCP Plugin for Claude Code
 
-A marketplace of Claude Code plugins by [Savantly](https://github.com/savantly-net).
+Memory layer for AI agents — store, organize, retrieve, and manage memories and beliefs via the [Headkey](https://headkey.ai) API.
 
 ## Installation
 
 ```bash
-# Add the marketplace (one time)
-claude plugin marketplace add savantly-net/claude-plugins
+claude plugin install headkey@headkey
 ```
 
-Then install any plugin:
-
-```bash
-claude plugin install <plugin-name>@savantly
-```
-
-## Available Plugins
-
-### Headkey
-
-Memory layer for AI agents — store, organize, retrieve, and manage memories and beliefs via the [Headkey](https://headkey.ai) API.
-
-```bash
-claude plugin install headkey@savantly
-```
-
-**Features:**
+## Features
 
 - **Memory management** — ingest, retrieve, search, and forget memories
 - **Belief tracking** — assert beliefs with confidence scores, detect conflicts
@@ -34,33 +17,48 @@ claude plugin install headkey@savantly
 - **Agent management** — create and configure AI agents with custom memory strategies
 - **CLAUDE.md generation** — run `/headkey:claude-md` to auto-generate memory instructions tailored to your project
 
-**Configuration:**
+## Configuration
 
-Set the `HEADKEY_API_KEY` environment variable with your API key:
+Run `/headkey:setup` inside Claude Code for guided configuration, or configure manually:
 
-```bash
-# Shell environment
-export HEADKEY_API_KEY="cibfe_your_key_here"
-```
+### Account Key (Recommended)
 
-Or add to `.claude/settings.json` (project) or `~/.claude/settings.json` (global):
+Set your account API key **globally** in `~/.claude/settings.json`:
 
 ```json
 {
   "env": {
-    "HEADKEY_API_KEY": "cibfe_your_key_here"
+    "HEADKEY_API_KEY": "cibfe_your_account_key_here"
   }
 }
 ```
 
-Or run `/headkey:setup` inside Claude Code for guided configuration.
+Set the agent ID **per-project** in `.claude/settings.json` in your project root:
+
+```json
+{
+  "env": {
+    "HEADKEY_AGENT_ID": "my-project-agent"
+  }
+}
+```
+
+The agent ID can be the agent UUID or the friendly slug from your agent configuration.
+
+### Agent Key
+
+If using an agent-specific key, only `HEADKEY_API_KEY` is needed (no agent ID required). Set it per-project or globally as above.
+
+### Git Safety
+
+Add `.claude/settings.json` to your `.gitignore` to avoid committing secrets.
 
 ## Development
 
-Test a plugin locally:
+Test the plugin locally:
 
 ```bash
-claude --plugin-dir ./path-to-plugin
+claude --plugin-dir .
 ```
 
 ## License
