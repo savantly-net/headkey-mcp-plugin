@@ -14,7 +14,7 @@
       "author": {
         "name": "Savantly"
       },
-      "source": "./",
+      "source": "./headkey/",
       "category": "productivity",
       "homepage": "https://github.com/savantly-net/claude-plugins"
     }
