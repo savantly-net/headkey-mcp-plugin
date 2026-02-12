@@ -15,7 +15,7 @@ When you make a decision or choose an approach, call `believe` with the decision
 ### Architecture Graph (3+ services or modules)
 
 ```
-When discovering how components, services, or modules connect, call `relate` with subject, object, and relationship description.
+When discovering how components, services, or modules connect, call `relate` with subject, object, and predicate (e.g. "depends on", "authenticates via").
 When exploring unfamiliar parts of the codebase, call `entities` to check what is already mapped before investigating from scratch.
 ```
 
@@ -78,7 +78,7 @@ When you make a decision or choose an approach, call `believe` with the decision
 At session start, call `ask` with "What do I know about acme-web-app?" to load prior context before doing any work.
 When you learn something significant about acme-web-app (architecture, conventions, gotchas), call `remember` with source: "acme-web-app" and relevant tags.
 When you make a decision or choose an approach, call `believe` with the decision and confidence 0.7-0.9.
-When discovering how components, services, or modules connect, call `relate` with subject, object, and relationship description.
+When discovering how components, services, or modules connect, call `relate` with subject, object, and predicate (e.g. "depends on", "authenticates via").
 When exploring unfamiliar parts of the codebase, call `entities` to check what is already mapped before investigating from scratch.
 Before making significant changes, call `beliefs` with category: "decision" to check for prior decisions and potential conflicts.
 When a previous decision is reversed or updated, call `believe` with the new decision — conflicts with prior beliefs are detected automatically.
@@ -92,7 +92,7 @@ When a previous decision is reversed or updated, call `believe` with the new dec
 At session start, call `ask` with "What do I know about mega-platform?" to load prior context before doing any work.
 When you learn something significant about mega-platform (architecture, conventions, gotchas), call `remember` with source: "mega-platform" and relevant tags.
 When you make a decision or choose an approach, call `believe` with the decision and confidence 0.7-0.9.
-When discovering how components, services, or modules connect, call `relate` with subject, object, and relationship description.
+When discovering how components, services, or modules connect, call `relate` with subject, object, and predicate (e.g. "depends on", "authenticates via").
 When exploring unfamiliar parts of the codebase, call `entities` to check what is already mapped before investigating from scratch.
 Before making significant changes, call `beliefs` with category: "decision" to check for prior decisions and potential conflicts.
 When a previous decision is reversed or updated, call `believe` with the new decision — conflicts with prior beliefs are detected automatically.

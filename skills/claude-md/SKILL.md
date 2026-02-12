@@ -25,7 +25,7 @@ This skill helps users generate and manage CLAUDE.md instructions that teach Cla
 | `forget` | Remove outdated/wrong memories | `memoryIds`, `strategy` |
 | `believe` | Recording a decision or assertion | `statement`, `confidence`, `category` |
 | `beliefs` | Check existing decisions for conflicts | `query`, `category`, `status` |
-| `relate` | Discovered how components connect | `subject`, `object`, `relationship` |
+| `relate` | Discovered how components connect | `subject`, `object`, `predicate` |
 | `entities` | List known components/concepts | `name`, `type`, `withBeliefs` |
 
 ## Memory Patterns Overview
