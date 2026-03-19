@@ -1,0 +1,30 @@
+{
+  "UserPromptSubmit": [
+    {
+      "hooks": [
+        {
+          "type": "http",
+          "url": "https://www.headkey.ai/api/v1/hooks/ingest",
+          "headers": {
+            "Authorization": "Bearer ${HEADKEY_API_KEY}",
+            "X-Headkey-Agent-Id": "${HEADKEY_AGENT_ID:-}"
+          }
+        }
+      ]
+    }
+  ],
+  "Stop": [
+    {
+      "hooks": [
+        {
+          "type": "http",
+          "url": "https://www.headkey.ai/api/v1/hooks/ingest",
+          "headers": {
+            "Authorization": "Bearer ${HEADKEY_API_KEY}",
+            "X-Headkey-Agent-Id": "${HEADKEY_AGENT_ID:-}"
+          }
+        }
+      ]
+    }
+  ]
+}
