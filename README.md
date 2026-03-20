@@ -4,8 +4,22 @@ Memory layer for AI agents — store, organize, retrieve, and manage memories an
 
 ## Installation
 
+1. Add the marketplace:
+
 ```bash
-claude plugin install headkey@headkey
+/plugin marketplace add savantly-net/headkey-mcp-plugin
+```
+
+2. Install the plugin:
+
+```bash
+/plugin install headkey@headkey-mcp-plugin
+```
+
+3. Reload to activate without restarting:
+
+```
+/reload-plugins
 ```
 
 ## Features
@@ -13,6 +27,7 @@ claude plugin install headkey@headkey
 - **Memory management** — ingest, retrieve, search, and forget memories
 - **Belief tracking** — assert beliefs with confidence scores, detect conflicts
 - **Knowledge graph** — create entities, define relationships, query connections
+- **Conversation logging** — automatically capture user prompts and assistant responses via Claude Code hooks for long-term knowledge extraction
 - **Sensory events** — stream events into short-term memory for async processing
 - **Agent management** — create and configure AI agents with custom memory strategies
 - **CLAUDE.md generation** — run `/headkey:claude-md` to auto-generate memory instructions tailored to your project
@@ -48,6 +63,20 @@ The agent ID can be the agent UUID or the friendly slug from your agent configur
 ### Agent Key
 
 If using an agent-specific key, only `HEADKEY_API_KEY` is needed (no agent ID required). Set it per-project or globally as above.
+
+## Conversation Logging
+
+This plugin includes hooks that automatically capture conversation messages (user prompts and assistant responses) and send them to Headkey for storage and knowledge extraction.
+
+**Requirements:**
+- Conversation logging must be enabled on your agent's config in Headkey (`conversationLogging.enabled: true`)
+- `HEADKEY_API_KEY` and `HEADKEY_AGENT_ID` must be set
+
+When enabled, the plugin registers two Claude Code hooks:
+- **UserPromptSubmit** — captures each user message
+- **Stop** — captures each assistant response
+
+Messages are stored in Elasticsearch and asynchronously processed through the sensory pipeline to extract facts, decisions, and relationships into long-term memory.
 
 ### Git Safety
 
