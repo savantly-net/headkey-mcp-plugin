@@ -1,6 +1,6 @@
 {
   "headkey": {
     "type": "http",
-    "url": "https://www.headkey.ai/api/mcp"
+    "url": "https://headkey.ai/api/mcp"
   }
 }
