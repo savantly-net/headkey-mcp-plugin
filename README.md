@@ -1,5 +1,10 @@
 # Headkey MCP Plugin for Claude Code
 
+> [!IMPORTANT]
+> **This repository is archived.** Everything this plugin did is now built into the Headkey core app — connect any MCP-capable client (Claude Code, Claude Desktop, Cursor, …) directly to your Headkey MCP endpoint and authenticate via OAuth in the browser; no plugin, marketplace, or setup command required.
+>
+> Get started at **[headkey.ai](https://headkey.ai)** — your agent's page in the Headkey console has copy-paste connection instructions for each client.
+
 Memory layer for AI agents — store, organize, retrieve, and manage memories and beliefs via the [Headkey](https://headkey.ai) API.
 
 ## Installation
